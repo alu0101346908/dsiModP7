@@ -1,4 +1,4 @@
-
+[![Coverage Status](https://coveralls.io/repos/github/alu0101346908/dsiModP7/badge.svg?branch=main)](https://coveralls.io/github/alu0101346908/dsiModP7?branch=main)
  
  ````
  >>  TITLE:      Mod7.
