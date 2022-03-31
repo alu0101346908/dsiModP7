@@ -2,15 +2,34 @@ import 'mocha';
 import {expect} from 'chai';
 import {ImperialMass} from '../src/mod/imperialMass';
 import {MetricMass} from '../src/mod/metricMass';
-//import {ImperialLength} from '../src/mod/imperialLength';
-//import {MetricLength} from '../src/mod/metricLength';
-//import {AdapterLength} from '../src/mod/adapterLength';
+import {ImperialLength} from '../src/mod/imperialLength';
+import {MetricLength} from '../src/mod/metricLength';
+import {AdapterLength} from '../src/mod/adapterLength';
 import {AdapterMass} from '../src/mod/adapterMass';
 
 describe('AdapterLength tests', () => {
-
-
-
+  const imperialLength1: ImperialLength = new ImperialLength(101, 'plg');
+  const imperialLength2: ImperialLength = new ImperialLength(122, 'pie');
+  const imperialLength3: ImperialLength = new ImperialLength(15, 'yd');
+  const imperialLength4: ImperialLength = new ImperialLength(23, 'milla');
+  const adapterLength1: AdapterLength = new AdapterLength(imperialLength1);
+  const adapterLength2: AdapterLength = new AdapterLength(imperialLength2);
+  const adapterLength3: AdapterLength = new AdapterLength(imperialLength3);
+  const adapterLength4: AdapterLength = new AdapterLength(imperialLength4);
+  it('Debe realizarse la transformacion correctamente (ImperialLength a MetricLength)', () => {
+    adapterLength1.transformImperialToMetric();
+    expect(adapterLength1.getMass()).to.be.eq(101*2.54);
+    expect(adapterLength1.getType()).to.be.eq('cm');
+    adapterLength2.transformImperialToMetric();
+    expect(adapterLength2.getMass()).to.be.eq(122*0.3048);
+    expect(adapterLength2.getType()).to.be.eq('m');
+    adapterLength3.transformImperialToMetric();
+    expect(adapterLength3.getMass()).to.be.eq(15*0.9144);
+    expect(adapterLength3.getType()).to.be.eq('m');
+    adapterLength4.transformImperialToMetric();
+    expect(adapterLength4.getMass()).to.be.eq(23*1.6093);
+    expect(adapterLength4.getType()).to.be.eq('km');
+  });
 });
 
 describe('AdapterMass tests', () => {
