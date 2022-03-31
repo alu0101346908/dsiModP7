@@ -12,12 +12,14 @@ describe('AdapterLength tests', () => {
   const imperialLength2: ImperialLength = new ImperialLength(122, 'pie');
   const imperialLength3: ImperialLength = new ImperialLength(15, 'yd');
   const imperialLength4: ImperialLength = new ImperialLength(23, 'mi');
+  const imperialLength6: ImperialLength = new ImperialLength(90, 'mi');
   const imperialLength5: ImperialLength = new ImperialLength(5, 'nmi');
   const adapterLength1: AdapterLength = new AdapterLength(imperialLength1);
   const adapterLength2: AdapterLength = new AdapterLength(imperialLength2);
   const adapterLength3: AdapterLength = new AdapterLength(imperialLength3);
   const adapterLength4: AdapterLength = new AdapterLength(imperialLength4);
   const adapterLength5: AdapterLength = new AdapterLength(imperialLength5);
+  const adapterLength6: AdapterLength = new AdapterLength(imperialLength6);
   it('Debe realizarse la transformacion correctamente (ImperialLength a MetricLength)', () => {
     adapterLength1.transformImperialToMetric();
     expect(adapterLength1.getLength()).to.be.eq(101*2.54);
@@ -34,6 +36,10 @@ describe('AdapterLength tests', () => {
     adapterLength5.transformImperialToMetric();
     expect(adapterLength5.getLength()).to.be.eq(5*1.853);
     expect(adapterLength5.getType()).to.be.eq('km');
+    adapterLength6.transformImperialToMetric();
+    expect(adapterLength6.getLength()).to.be.eq(90*1.6093);
+    console.log(adapterLength6.getLength());
+    expect(adapterLength6.getType()).to.be.eq('km');
   });
 });
 

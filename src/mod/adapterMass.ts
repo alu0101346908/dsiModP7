@@ -2,10 +2,22 @@
 import {MetricMass} from './metricMass';
 import {ImperialMass} from './imperialMass';
 
+/**
+ * Clase adaptadora que extiende a MetricMass para poder pasar de sistema imperial a sistema metrico, extiende al sistema metrico para cumplir con el patron de diseño
+ * de adapter.
+ */
 export class AdapterMass extends MetricMass {
+  /**
+   * Constructor que recibe un ImperialMass para realizar la conversion de sistema imperial a sistema metrico
+   * @param imperialSystem Clase ImperialMass
+   */
   constructor(private imperialSystem: ImperialMass) {
     super();
   }
+  /**
+   * Metodo "General" el cual realiza la conversion de sistema imperial a sistema metrico, en este caso de masa. Recoge
+   * los valores del sistema imperial y realiza la conversion a sistema metrico, haciendo uso del tipo "anotacion lb, oz, piedra"
+   */
   transformImperialToMetric() {
     const mass2Convert: number = this.imperialSystem.getMass();
     const type2Convert: string = this.imperialSystem.getType();

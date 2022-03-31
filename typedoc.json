@@ -1,5 +1,11 @@
 {
   "entryPoints": [
+    "./src/mod/adapterLength.ts",
+    "./src/mod/adapterMass.ts",
+    "./src/mod/metricLength.ts",
+    "./src/mod/metricMass.ts",
+    "./src/mod/imperialLength.ts",
+    "./src/mod/imperialMass.ts"
   ],
   "out": "./docs"
 }
